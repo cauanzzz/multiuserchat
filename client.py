@@ -5,7 +5,7 @@ import threading
 HOST = "127.0.0.1"   
 PORT = 50000        
 
-def thread2_receber(sock):
+def thread2_receber(sock): 
     buffer = ""
     try:
         while True:

@@ -57,9 +57,12 @@ def processar(conexao, endereco, estado, linha, encerrar):
         else:
             enviar(conexao, "[servidor] Uso correto: :nome <NOVO_NOME>\n", encerrar)
         return
+    
+    if tokens[0].startswith(":"):
+        enviar(conexao, f"[servidor] Comando desconhecido: {tokens[0]}\n", encerrar)
+        return
 
-    hora = datetime.now().strftime('%H:%M:%S')
-    enviar(conexao, f"{estado['nome_user']} ({hora}): {linha}\n", encerrar)
+    enviar(conexao, f"Voce digitou: {linha}\n", encerrar) 
 
 def thread_processadora(conexao, endereco, fila, estado, encerrar):
 
